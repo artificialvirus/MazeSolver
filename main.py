@@ -42,7 +42,12 @@ rewards = {agent_name: [] for agent_name in agents}
 
 satisfactory_performance = 25  # threshold for satisfactory performance
 
-run_hyperparameter_optimization(agents, env, num_episodes)
+
+# Hyperparameter optimization
+for agent_name, agent in agents.items():
+    print(f"Running hyperparameter optimization for {agent_name}...")
+    best_params = run_hyperparameter_optimization(agent, env, num_episodes)
+    print(f"Best hyperparameters for {agent_name}: {best_params}")
 
 
 for agent_name, agent in agents.items():
